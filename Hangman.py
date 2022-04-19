@@ -1,12 +1,14 @@
-word_list = ["aardvark", "baboon", "camel"]
-
 import random
+from hangman_art import stages, logo
+
+word_list = ["aardvark", "baboon", "camel"]
 
 random_int = random.randint(0, len(word_list) - 1)
 
 chosen_word = word_list[random_int]
-print(chosen_word)
-lives_left = 6
+print(logo)
+
+lives_left = len(stages) - 1
 
 display = []
 for space in range(len(chosen_word)):
@@ -22,7 +24,8 @@ while not end_game:
         choice = chosen_word[letter]
         if choice == chosen_letter:
             display[letter] = chosen_letter
-    if choice not in chosen_letter:
+
+    if chosen_letter not in chosen_word:
         lives_left -= 1
         print(lives_left)
         if lives_left == 0:
@@ -34,3 +37,5 @@ while not end_game:
     if "_" not in display:
         end_game = True
         print("You win")
+    print(stages[lives_left])
+
