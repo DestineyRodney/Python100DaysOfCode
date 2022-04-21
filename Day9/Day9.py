@@ -29,13 +29,63 @@
 #     print(programming_dictionary[key])
 
 # Nesting
-capitals = {
-    "France": "Paris",
-    "Germany": "Berlin"
-}
+# capitals = {
+#     "France": "Paris",
+#     "Germany": "Berlin"
+# }
+#
+# # Nesting in Dictionary in Dictionary
+#
+# travel_log = {
+#     "France": {"Cities_Visited":  ["Paris", "Lille", "Dijon"], "total_visits": 12}
+# }
+#
+# # Nesting dictionary in list
+#
+# # [{
+# #     Key: [List],
+# #     Key2: {Dict},
+# # },
+# #     {
+# #         Key: Value,
+# #         Key2: Value,
+# # }]
+#
+# travel_log = [
+#     {
+#         "Country": "United States",
+#         "cities_visited": ["Austin", "New Haven", "New York City"],
+#         "total_visits": 8
+#     },
+#     {
+#         "Country": "France",
+#         "Cities_Visited":  ["Paris", "Lille", "Dijon"],
+#         "total_visits": 12
+#     },
+# ]
+#
+travel_log = [
+    {
+        "country": "France",
+        "visits": 12,
+        "cities": ["Paris", "Lille", "Dijon"]
+    },
+    {
+        "country": "Germany",
+        "visits": 5,
+        "cities": ["Berlin", "Hamburg", "Stuttgart"]
+    },
+]
+#🚨 Do NOT change the code above
 
-# Nesting in Dictionary
+#TODO: Write the function that will allow new countries
 
-travel_log = {
-    "France": {"Cities_Visited":  ["Paris", "Lille", "Dijon"]}
-}
+
+def add_new_country(country_visited, num_visits, cities_visited):
+    new_country = {"country": country_visited, "visits": num_visits, "cities": cities_visited}
+    travel_log.append(new_country)
+
+
+add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
+print(travel_log)
+
