@@ -46,6 +46,7 @@ def add(num_one, num_two):
     return num_one + num_two
 
 
+
 print("Welcome to the calculator")
 num_one = int(input("Enter a number"))
 operations = {
@@ -58,11 +59,15 @@ operations = {
 for symbol in operations:
     print(symbol)
 
-chosen_operator = input("Pick an operation from above")
-num_two = int(input("Enter a number"))
+is_continue = True
+while is_continue:
+    chosen_operator = input("Pick an operation from above")
+    num_two = int(input("Enter a number"))
+    calc_function = operations[chosen_operator]
+    answer = calc_function(num_one, num_two)
 
-calc_function = operations[chosen_operator]
-answer = calc_function(num_one, num_two)
-
-
-print(f"{num_one} {chosen_operator} {num_two} = {answer}")
+    print(f"{num_one} {chosen_operator} {num_two} = {answer}")
+    if input(f"Type 'y' to continue with {answer}: ") == "y":
+        num_one = answer
+    else:
+        is_continue = False
