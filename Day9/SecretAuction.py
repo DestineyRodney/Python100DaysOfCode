@@ -1,8 +1,8 @@
 from replit import clear
+import random
 #HINT: You can call clear() to clear the output in the console.
-from art import logo
+# from art import logo
 
-print(logo)
 print("Welcome to the secret auction")
 
 bids = {}
@@ -31,5 +31,9 @@ while not bidding_finished:
         highest_bid(bids)
     elif more_bidders == "yes":
         clear()
+
+
+
+
 
 
