@@ -40,25 +40,26 @@ def compare_score(user_score, computer_score):
 def play_game():
     user_hand = []
     computer_hand = []
-    end_game = False
+    is_game_over = False
 
     for _ in range(2):
         user_hand.append(deal_card())
         computer_hand.append(deal_card())
 
-    while not end_game:
+    while not is_game_over:
         user_score = calculate_score(user_hand)
         computer_score = calculate_score(computer_hand)
         print(f"Your cards: {user_hand}, current score: {user_score}")
         print(f"Computer's first card: {computer_hand[0]}")
+
         if user_score == 0 or computer_score or user_score > 21:
-            end_game = True
+            is_game_over = True
         else:
-            cont = input("Would you like to draw another card? ( 'y' to continue 'n' to exit")
+            cont = input("Would you like to draw another card? ( 'y' to continue 'n' to exit)")
             if cont == "y":
                 user_hand.append(deal_card())
             else:
-                end_game = True
+                is_game_over = True
 
     while computer_score != 0 and computer_score < 17:
         computer_hand.append(deal_card())
