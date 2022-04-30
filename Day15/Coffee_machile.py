@@ -43,6 +43,7 @@ def reserved_materials(coffees, resource, user_coffee_type):
             resource["milk_reserved"] -= coffees[user_coffee]["resources"]["milk_needed"]
             global profit
             profit += coffees[user_coffee]["resources"]["price"]
+            print(resource)
 
 
 def paid_amount():
@@ -57,10 +58,7 @@ def paid_amount():
 user_coffee = input("Which coffee?")
     # if user_coffee == "off":
         # is_on = False
-if user_coffee == "report":
-    reserved_materials(coffees_data, resources, user_coffee)
-    print(resources)
-    print(f"Profit: {profit}")
+
 
 total_paid = paid_amount()
 if total_paid < coffees_data[user_coffee]["resources"]["price"]:
@@ -68,6 +66,14 @@ if total_paid < coffees_data[user_coffee]["resources"]["price"]:
 elif total_paid > coffees_data[user_coffee]["resources"]["price"]:
     refund = round(total_paid - coffees_data[user_coffee]["resources"]["price"], 2)
     print(f"Here's your {user_coffee} and your change: {refund}")
+    if user_coffee == "report":
+        reserved_materials(coffees_data, resources, user_coffee)
+    print(resources)
+    print(f"Profit: {profit}")
 else:
     print(f"Here's your {user_coffee}")
 
+if user_coffee == "report":
+    reserved_materials(coffees_data, resources, user_coffee)
+    print(resources)
+    print(f"Profit: {profit}")
