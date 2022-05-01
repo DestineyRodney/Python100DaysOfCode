@@ -32,9 +32,9 @@ MENU = {
 
 profit = 0
 resources = {
-    "water": 300,
-    "coffee": 200,
-    "milk": 100
+    "water": 600,
+    "coffee": 600,
+    "milk": 600
 }
 
 def resource_sufficient(order_ingredients):
@@ -68,7 +68,7 @@ def transaction_success(money_paid, drink_cost):
 def make_coffee(order_ingredients, drink_name):
     for item in order_ingredients:
         resources[item] -= order_ingredients[item]
-        print(f"Here is your {drink_name}")
+    print(f"Here is your {drink_name}")
 
 
 is_on = True
@@ -86,7 +86,7 @@ while is_on:
         if resource_sufficient(drink["ingredients"]):
             total_payment = pay()
             if transaction_success(total_payment, drink["cost"]):
-                make_coffee(user_choice, drink["ingredients"])
+                make_coffee(drink["ingredients"], user_choice)
 
 
 
