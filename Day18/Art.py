@@ -77,18 +77,32 @@ tim.shape("turtle")
 # octagon()
 # nonagon()
 # decagon()
+
 colors = ["firebrick", "dark olive green", "peru", "light salmon", "dark slate blue", "magenta", "cyan", "gray"]
 
-def draw_shapes(num_sides,):
-    for _ in range(num_sides):
-        angle = 360/num_sides
-        tim.forward(100)
-        tim.right(angle)
 
+# def draw_shapes(num_sides,):
+#     for _ in range(num_sides):
+#         angle = 360/num_sides
+#         tim.forward(100)
+#         tim.right(angle)
+#
+#
+# for shape_side in range(3, 11):
+#     tim.color(random.choice(colors))
+#     draw_shapes(shape_side)
+#
+#
 
-for shape_side in range(3, 11):
+colors = ["firebrick", "dark olive green", "peru", "light salmon", "dark slate blue", "magenta", "cyan", "gray"]
+direction = [0, 90.180, 270]
+
+for _ in range(200):
     tim.color(random.choice(colors))
-    draw_shapes(shape_side)
+    tim.pensize(10)
+    tim.speed("fast")
+    tim.forward(30)
+    tim.setheading(random.choice(direction))
 
 
 
@@ -96,14 +110,8 @@ for shape_side in range(3, 11):
 
 
 
-
-
-
-
-
-
-screen = Screen()
-screen.exitonclick()
+s = Screen()
+s.exitonclick()
 
 # Draw Square
 
