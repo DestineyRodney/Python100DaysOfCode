@@ -1,8 +1,8 @@
+import turtle as t
 from random import random
 from turtle import *
 import random
 tim = Turtle()
-tim.shape("turtle")
 
 # Timmy makes a square
 
@@ -94,24 +94,52 @@ colors = ["firebrick", "dark olive green", "peru", "light salmon", "dark slate b
 #
 #
 
-colors = ["firebrick", "dark olive green", "peru", "light salmon", "dark slate blue", "magenta", "cyan", "gray"]
-direction = [0, 90.180, 270]
+t.colormode(255)
+
+
+def wall_checker(self):
+
+    if self.xcor() > 300:
+        self.goto(290, self.ycor())
+    elif self.xcor() < -300:
+        self.goto(-290, self.ycor())
+
+    if self.ycor() > 300:
+        self.goto(self.xcor(), 290)
+    elif self.ycor() < -300:
+        self.goto(self.xcor(), -290)
+
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    my_tuple = (r, g, b)
+    return my_tuple
+
+
+direction = [0, 90, 180, 270]
 
 for _ in range(200):
-    tim.color(random.choice(colors))
+    tim.shape("turtle")
+    tim.color(random_color())
     tim.pensize(10)
     tim.speed("fast")
     tim.forward(30)
+    wall_checker(tim)
     tim.setheading(random.choice(direction))
 
 
+# for _ in range(100):
+#     tim.speed("fastest")
+#     tim.color(random_color())
+#     tim.circle(100)
+#     current_heading = tim.heading()
+#     tim.setheading(current_heading + 10)
 
+screen = t.Screen()
+screen.exitonclick()
 
-
-
-
-s = Screen()
-s.exitonclick()
 
 # Draw Square
 
