@@ -120,11 +120,11 @@ def random_color():
 
 direction = [0, 90, 180, 270]
 
-for _ in range(200):
+for _ in range(500):
     tim.shape("turtle")
     tim.color(random_color())
     tim.pensize(10)
-    tim.speed("fast")
+    tim.speed("fastest")
     tim.forward(30)
     wall_checker(tim)
     tim.setheading(random.choice(direction))
